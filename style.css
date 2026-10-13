@@ -1,0 +1,204 @@
+
+body { 
+    font-family: 'Segoe UI', 
+    sans-serif; 
+    background-color: #f4f7f6; 
+    margin: 0; color: #333; 
+}
+header { 
+    background: #2c3e50; 
+    color: white; 
+    padding: 1rem; 
+    text-align: center; 
+}
+
+.main-container { 
+    padding: 20px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+    max-width: 1400px; 
+    margin: 0 auto; 
+}
+
+#map-section { 
+    background: white; 
+    padding: 20px; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+}
+
+.chart-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    border-bottom: 1px solid #eee; 
+    padding-bottom: 10px; 
+    margin-bottom: 15px; 
+}
+
+.controls { 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    flex-wrap: wrap;
+    background: #eef2f6; 
+    border: 1px solid #dce4ec; 
+    padding: 12px 18px;
+    border-radius: 10px; 
+    position: sticky;
+    top: 15px;
+    z-index: 9999;
+    box-shadow: 
+        0 10px 25px -5px rgba(30, 41, 59, 0.1), 
+        0 5px 10px -5px rgba(30, 41, 59, 0.05);
+    margin-bottom: 25px;
+    transition: box-shadow 0.3s ease;
+}
+.controls select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 8px 32px 8px 14px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #ffffff;
+    color: #334155;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 14px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+
+.controls select:hover {
+    border-color: #94a3b8;
+}
+
+.controls select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+}
+
+#selected-city-label {
+    background-color: #e0f2fe;
+    color: #0369a1;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    border: 1px solid #bae6fd;
+    display: inline-block;
+}
+#reset-filter {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    background-color: #ffffff;
+    color: #475569;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+
+#reset-filter:hover {
+    background-color: #f1f5f9;
+    color: #0f172a;
+    border-color: #94a3b8;
+}
+
+#reset-filter:active {
+    background-color: #e2e8f0;
+    transform: translateY(1px);
+}
+#device-select, #payment-select, #region-select {
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 13px;
+    background: white;
+}
+#choropleth-map { 
+    width: 100%; 
+    height: 450px; 
+}
+
+.city-path { 
+    stroke: #fff; 
+    stroke-width: 0.5; 
+    cursor: pointer; 
+    transition: 0.3s; 
+}
+
+.city-path:hover { 
+    fill: #e67e22 !important; 
+}
+
+.region-highlight { 
+    stroke: #e67e22 !important; 
+    stroke-width: 2.5px !important; 
+}
+
+.secondary-charts { display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    gap: 20px; 
+}
+.chart-card { 
+    background: white; 
+    padding: 15px; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+    min-height: 320px; 
+}
+
+#region-sales-bar {
+    width: 100%;
+    max-width: 420px;
+    height: 300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brush .selection {
+    fill: #3498db;
+    fill-opacity: 0.3;
+    stroke: #2980b9;
+}
+
+.tooltip {
+    position: absolute;
+    padding: 12px;
+    background: rgba(44, 62, 80, 0.95);
+    color: white;
+    border-radius: 8px;
+    pointer-events: none;
+    font-size: 13px;
+    line-height: 1.6;
+    opacity: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.2);
+    min-width: 180px;
+}
+
+.tooltip b { 
+    color: #e67e22; 
+}
+
+button, select { 
+    padding: 8px; 
+    cursor: pointer; 
+    border-radius: 4px; 
+    border: 1px solid #ccc; 
+}

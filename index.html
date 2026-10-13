@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Analysis Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>E-commerce Customer Behavior and Sales Analysis</h1>
+    </header>
+
+   <div class="main-container">
+        
+        <div class="controls sticky-controls">
+            <select id="region-select">
+                <option value="all">All Regions</option>
+                <option value="Marmara">Marmara Region</option>
+                <option value="Central Anatolia">Central Anatolia Region</option>
+                <option value="Aegean">Aegean Region</option>
+                <option value="Mediterranean">Mediterranean Region</option>
+                <option value="Southeastern Anatolia">Southeastern Anatolia Region</option>
+            </select>
+
+            <select id="device-select">
+                <option value="all">All Devices</option>
+                <option value="Mobile">Mobile</option>
+                <option value="Desktop">Desktop</option>
+                <option value="Tablet">Tablet</option>
+            </select>
+
+            <select id="payment-select">
+                <option value="all">All Payments</option>
+                <option value="Credit Card">Credit Card</option>
+                <option value="Cash on Delivery">Cash on Delivery</option>
+            </select>
+
+            <span id="selected-city-label">All of Turkey is Displayed</span>
+            <button id="reset-filter">Reset</button>
+        </div>
+        <section id="map-section">
+            <div class="chart-header">
+                <h2>Turkey Regional and City-Based Sales Analysis</h2>
+                </div>
+            <div id="choropleth-map"></div>
+        </section>
+        
+        
+
+        <div class="secondary-charts">
+            <div class="chart-card" id="heatmap-container">
+                <h3>Age Group vs Product Category</h3>
+                <div id="heatmap"></div>
+            </div>
+            
+            <div class="chart-card" id="scatter-container">
+                <h3>Discount vs Total Spending</h3>
+                <div id="scatter-plot"></div>
+            </div>
+
+            <div class="chart-card" id="line-container">
+                <h3>Sales Trend Over Time (Select Date Range)</h3>
+                <div id="line-chart"></div>
+            </div>
+        </div>
+
+        <div class="secondary-charts">
+            <div class="chart-card">
+                <h3>Order Count by City</h3>
+                <div id="map-order-count" style="height: 300px;"></div>
+            </div>
+            <div class="chart-card">
+                <h3>Avg. Session Duration by City</h3>
+                <div id="map-session-duration" style="height: 300px;"></div>
+            </div>
+        </div>
+        <div class="secondary-charts">
+            <div class="chart-card">
+                <h3>Compare Regions by Sales</h3>
+                <div id="region-sales-bar" style="height: 300px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tooltip" class="tooltip"></div>
+    <script src="app.js"></script>
+</body>
+</html>
